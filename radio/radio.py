@@ -18,7 +18,8 @@ class Radio():
         received_bytes = ""
 
         #Append bytes from serial port to message until null is received.
-        while received_bytes[-3:] != 'EOT':
+        while received_bytes[-1:] != 0x04: #replaced, until ascii 'eot' is received
+        #TODO: look for the 'send' end of this and replace the += 'EOT';
         
             new_data = self.serial.read()
 #            new_data = self.receive_sim_data()
